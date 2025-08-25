@@ -1,56 +1,84 @@
-# MortgageCalculatorTest
+🏡 Mortgage Calculator Test Automation
 
-End-to-end UI tests for a public mortgage calculator site using **Java 17**, **Selenium WebDriver 4**, **TestNG**, and **Maven**, organized with a simple **Page Object Model** and running in **GitHub Actions** CI. Reports are captured via **Allure** artifacts.
+📖 Project Overview
 
-## Highlights
-- Page Objects (`mortgage.pages.MortgageCalculatorPage`)
-- Base test class with **WebDriverManager** and optional **headless** support
-- Positive, Negative, and Boundary tests via **DataProviders**
-- **testng.xml** suite and **maven-surefire-plugin** config
-- CI workflow for Ubuntu + headless Chrome
-- Allure result artifacts uploaded automatically
+This project automates the Mortgage Calculator web app using Java, Selenium, TestNG, and the Page Object Model (POM).
+It demonstrates:
 
-## Requirements
-- Java 17+
-- Maven 3.8+
-- Google Chrome (for local runs). CI installs Chrome automatically.
+Clean automation framework structure
 
-## Run Locally
-```bash
-# Headed
+Positive, negative, and boundary test scenarios
+
+CI/CD with GitHub Actions
+
+Allure test reporting
+
+
+
+🗂 Project Structure
+
+MortgageCalculatorTest
+ ┣ 📂 src
+ ┃ ┗ 📂 test
+ ┃    ┣ 📂 java
+ ┃    ┃ ┣ 📂 mortgage.base      # BaseTest (setup/teardown)
+ ┃    ┃ ┣ 📂 mortgage.pages     # Page Object (UI interactions)
+ ┃    ┃ ┗ 📂 mortgage.tests     # Positive, Negative & Boundary tests
+ ┃    ┗ 📂 resources
+ ┣ 📄 pom.xml                   # Maven dependencies
+ ┣ 📄 testng.xml                # TestNG suite
+ ┣ 📄 README.md                 # Project documentation
+ ┗ 📂 .github/workflows         # GitHub Actions CI config
+
+
+
+ ⚙️ Tech Stack
+
+  Java 17
+
+  Selenium 4 (browser automation)
+
+  TestNG (test framework)
+
+  WebDriverManager (driver management)
+
+  Allure Reports (test reporting)
+
+  GitHub Actions (CI/CD pipeline)
+
+
+
+
+▶️ How to Run Tests
+
+Clone the repo and run with Maven:
+
+
+# Run in headed mode
 mvn clean test
 
-# Headless
-mvn -Dheadless=true clean test
-```
+# Run in headless mode (for CI/servers)
+mvn clean test -Dheadless=true
 
-## View Allure Results Locally
-This project produces `allure-results` alongside surefire reports. To generate a local HTML report:
-```bash
-# Requires Allure commandline installed locally
-allure serve target/allure-results
-```
-Or:
-```bash
-allure generate target/allure-results -o target/allure-report --clean
-```
 
-## Structure
-```
-src/
-  test/java/mortgage/
-    base/BaseTest.java
-    pages/MortgageCalculatorPage.java
-    tests/PositiveTests.java
-    tests/NegativeTests.java
-    tests/BoundaryTests.java
-testng.xml
-.github/workflows/maven.yml
-```
 
-## CI
-The GitHub Actions workflow:
-- Checks out the repo
-- Sets up Java 17 & Chrome
-- Runs tests in headless mode
-- Uploads **surefire-reports** and **allure-results** as artifacts
+
+📊 Test Coverage
+
+Positive tests – valid mortgage calculations
+
+Negative tests – invalid/missing inputs
+
+Boundary tests – edge cases (0 values, large numbers, etc.)
+
+
+
+
+
+📈 Continuous Integration
+
+On every push/PR, GitHub Actions:
+
+Runs the Selenium tests in headless mode
+
+Uploads test results (surefire-reports + allure-results) as artifacts
