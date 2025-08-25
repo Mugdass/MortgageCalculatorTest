@@ -1,1 +1,33 @@
+# Maven build
+/target/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+out/
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# WebDriver executables
+chromedriver.exe
+geckodriver.exe
+msedgedriver.exe
+
+# Reports (optional, can regenerate)
+allure-results/
+allure-report/
+surefire-reports/
 
